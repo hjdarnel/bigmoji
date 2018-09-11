@@ -64,7 +64,7 @@ const getEmoji = async (input, responseUrl) => {
     } else {
         response = {
             response_type: 'ephemeral',
-            text: `${input} not found.`
+            text: `${input} not found. Perhaps it's a default emoji?`
         };
     }
 
