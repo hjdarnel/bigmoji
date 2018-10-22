@@ -1,1 +1,3 @@
 node_modules/
+# is now a built artifact
+index.js
