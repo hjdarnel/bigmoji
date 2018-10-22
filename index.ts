@@ -1,6 +1,7 @@
-const { text, send } = require('micro');
-const request = require('request-promise-native');
-const qs = require('query-string');
+import { text, send } from 'micro';
+import request from 'request-promise-native';
+import { IncomingMessage, ServerResponse } from 'http';
+import qs from 'query-string';
 const url = require('url');
 
 const { createLogger } = require('bunyan');
@@ -16,7 +17,7 @@ if (!auth) {
     throw new Error('No auth token!');
 }
 
-const respond = async (req, res) => {
+const respond = async (req: IncomingMessage, res: ServerResponse) => {
     const body = await qs.parse(await text(req));
 
     logger.debug('Received command', body.text);
@@ -42,7 +43,15 @@ const respond = async (req, res) => {
     }
 };
 
-const getEmoji = async (input, responseUrl) => {
+const getEmoji = async (input: string | string[], responseUrl: string | string[]) => {
+    if (Array.isArray(input)) {
+        // TODO: what if the input is multiple strings? Query all?
+        input = input[0];
+    }
+    if (Array.isArray(responseUrl)) {
+        // TODO: what if the responseUrl is multiple strings? Throw?
+        responseUrl = responseUrl[0];
+    }
     const { emoji } = await request.get('https://slack.com/api/emoji.list', {
         qs: {
             token: auth
