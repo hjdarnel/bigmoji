@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "name": "bigmoji",
+    "alias": "bigmoji.now.sh",
+    "env": {
+        "SLACK_TOKEN": "@personal-slack"
+    },
+    "scale": {
+        "sfo1": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    "public": true
+}

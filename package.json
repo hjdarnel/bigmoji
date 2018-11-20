@@ -5,11 +5,10 @@
     "repository": "github:hjdarnel/bigmoji",
     "license": "MIT",
     "scripts": {
-        "prestart": "run-s lint build",
         "start": "micro index.js",
         "build": "tsc",
         "lint": "tslint --project tslint.json",
-        "start:dev": "npm install && nodemon -x 'npm start | bunyan -o short -l debug' -L -e ts"
+        "start:dev": "npm install && nodemon -x 'run-s lint build && npm start | bunyan -o short -l debug' -L -e ts"
     },
     "dependencies": {
         "bunyan": "1.8.12",
