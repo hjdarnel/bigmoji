@@ -1,7 +1,7 @@
 {
     "version": 1,
     "name": "bigmoji",
-    "alias": "bigmoji.now.sh",
+    "alias": "bigmoji.darnell.io",
     "env": {
         "SLACK_TOKEN": "@personal-slack"
     },
