@@ -11,5 +11,8 @@
             "max": 1
         }
     },
-    "public": true
+    "public": true, 
+    "github": {
+        "silent": true
+    }
 }
