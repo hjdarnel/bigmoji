@@ -6,6 +6,7 @@
     "license": "MIT",
     "scripts": {
         "start": "micro index.js",
+        "test": "npm run build && npm run lint",
         "build": "tsc",
         "lint": "tslint --project tslint.json",
         "start:dev": "npm install && nodemon -x 'run-s lint build && npm start | bunyan -o short -l debug' -L -e ts"
